@@ -1,4 +1,4 @@
-from utils import get_day_input
+from utils import get_day_input, time_and_print_result
 
 data = get_day_input("two")
 
@@ -26,29 +26,33 @@ scores = {
     "Z": 3 # scissors
 }
 
-# part 1
-score = 0
-for line in data.split("\n"):
-    them, me = line.split(" ")
-    if ties.get(them) == me:
-        score += 3 # draw
-    elif wins.get(them) == me:
-        score += 6 # we won
-    score += scores[me]
+def part_one():
+    score = 0
+    for line in data.split("\n"):
+        them, me = line.split(" ")
+        if ties.get(them) == me:
+            score += 3 # draw
+        elif wins.get(them) == me:
+            score += 6 # we won
+        score += scores[me]
 
-print("Part 1: ", score)
+    return score
 
-score = 0
-for line in data.split("\n"):
-    them, end = line.split(" ")
-    match end:
-        case "X":
-            me = loss[them]
-        case "Y":
-            me = ties[them]
-            score += 3
-        case "Z":
-            me = wins[them]
-            score += 6
-    score += scores.get(me)
-print("Part 2: ", score)
+def part_two():
+    score = 0
+    for line in data.split("\n"):
+        them, end = line.split(" ")
+        match end:
+            case "X":
+                me = loss[them]
+            case "Y":
+                me = ties[them]
+                score += 3
+            case "Z":
+                me = wins[them]
+                score += 6
+        score += scores.get(me)
+    return score
+
+time_and_print_result("1", part_one)
+time_and_print_result("2", part_two)
