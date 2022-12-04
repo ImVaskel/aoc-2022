@@ -1,6 +1,6 @@
 from utils import get_day_input, time_and_print_result
 
-data = get_day_input("two")
+data = get_day_input(2)
 
 ties= {
     "A": "X",

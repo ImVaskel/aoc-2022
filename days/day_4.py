@@ -3,7 +3,7 @@ import itertools
 
 from utils import get_day_input, time_and_print_result
 
-data = get_day_input("four")
+data = get_day_input(4)
 
 
 def part_one():

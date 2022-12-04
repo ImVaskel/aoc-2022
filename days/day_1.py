@@ -1,6 +1,6 @@
 from utils import get_day_input, time_and_print_result
 
-data = get_day_input("one")
+data = get_day_input(1)
 
 # Part One
 def part_one():
@@ -15,6 +15,7 @@ def part_two():
             reverse=True,
         )[:3]
     )
+
 
 time_and_print_result("1", part_one)
 time_and_print_result("2", part_two)

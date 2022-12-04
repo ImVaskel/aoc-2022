@@ -2,8 +2,9 @@ import string
 from utils import get_day_input, time_and_print_result
 
 
-data = get_day_input("three")
+data = get_day_input(3)
 weights = string.ascii_letters
+
 
 def part_one():
     sum = 0
@@ -20,6 +21,7 @@ def part_one():
 
     return sum
 
+
 def part_two():
     data = data.split("\n")
     groups = [data[i : i + 3] for i in range(0, len(data), 3)]
@@ -34,6 +36,7 @@ def part_two():
         sum += weights.index(found) + 1
 
     return sum
+
 
 time_and_print_result("1", part_one)
 time_and_print_result("2", part_two)

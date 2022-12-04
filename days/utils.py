@@ -19,12 +19,12 @@ if PATH.exists():
         SESSION_TOKEN = fp.read()
 else:
     print(
-        "warning: no `token.txt` file detected in the root directory, you will be unable to get data from aoc's website."
+        f"{RED} warning: no `token.txt` file detected in the root directory, you will be unable to get data from aoc's website."
     )
 
 
-def get_day_input_from_aoc(day: int, name: str) -> None:
-    file = Path(__file__).parent.parent / "data" / f"day_{name}.txt"
+def get_day_input_from_aoc(day: int) -> None:
+    file = Path(__file__).parent.parent / "data" / f"day_{day}.txt"
     with requests.get(
         f"https://adventofcode.com/2022/day/{day}/input",
         cookies={"session": SESSION_TOKEN},
@@ -33,7 +33,7 @@ def get_day_input_from_aoc(day: int, name: str) -> None:
             fp.write(res.text)
 
 
-def get_day_input(day: str) -> str:
+def get_day_input(day: int) -> str:
     with open(f"data/day_{day}.txt", "r") as fp:
         return fp.read()
 
@@ -56,10 +56,7 @@ def time_and_print_result(part: str, callable: Callable[..., Any]):
     print(f"{BLUE}Part {part}: {GREEN}{result}{RESET} [took {CYAN}{took:.2f}ms{RESET}]")
 
 
-# Call this script with (int)day (string)output
+# Call this script with (int)day
 if __name__ == "__main__":
     args = sys.argv[1:]
-    if len(args) != 2:
-        raise Exception("args need to be in the form of (day), (name).")
-
-    get_day_input_from_aoc(args[0], args[1])
+    get_day_input_from_aoc(args[0])
