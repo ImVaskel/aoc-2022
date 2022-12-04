@@ -1,4 +1,4 @@
-from utils import get_day_input, time_and_print_result
+from .utils import get_day_input
 
 data = get_day_input(2)
 
@@ -53,6 +53,3 @@ def part_two():
                 score += 6
         score += scores.get(me)
     return score
-
-time_and_print_result("1", part_one)
-time_and_print_result("2", part_two)
