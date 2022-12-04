@@ -1,4 +1,3 @@
-import sys
 import time
 import traceback
 from pathlib import Path
@@ -34,7 +33,8 @@ def get_day_input_from_aoc(day: int) -> None:
 
 
 def get_day_input(day: int) -> str:
-    with open(f"data/day_{day}.txt", "r") as fp:
+    path = Path(__file__).parent.parent / "data" / f"day_{day}.txt"
+    with path.open("r") as fp:
         return fp.read()
 
 
