@@ -54,9 +54,3 @@ def time_and_print_result(part: str, callable: Callable[..., Any]):
     took = (end - start) * 1000
 
     print(f"{BLUE}Part {part}: {GREEN}{result}{RESET} [took {CYAN}{took:.2f}ms{RESET}]")
-
-
-# Call this script with (int)day
-if __name__ == "__main__":
-    args = sys.argv[1:]
-    get_day_input_from_aoc(args[0])

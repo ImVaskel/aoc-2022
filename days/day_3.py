@@ -23,8 +23,8 @@ def part_one():
 
 
 def part_two():
-    data = data.split("\n")
-    groups = [data[i : i + 3] for i in range(0, len(data), 3)]
+    lines = data.split("\n")
+    groups = [lines[i : i + 3] for i in range(0, len(lines), 3)]
     sum = 0
     for group in groups:
         for char in group[0]:

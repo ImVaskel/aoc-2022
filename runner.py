@@ -1,4 +1,5 @@
 import argparse
+from ast import parse
 import datetime
 from importlib import import_module
 import pathlib
@@ -14,14 +15,24 @@ if __name__ == "__main__":
         help="The day to run (default today).",
         default=now.day,
     )
-    day: int = parser.parse_args().day
+    parser.add_argument(
+        "--alt",
+        "-a",
+        action="store_true",
+        help="Run the alternate answer, this just converts to `day_x_alt.py`.",
+    )
+    args = parser.parse_args()
+    day: int = args.day
+    alt = args.alt
 
     path = pathlib.Path(f"data/day_{day}.txt")
     if not path.exists():
         print("input data not found, fetching and writing to file.")
         get_day_input_from_aoc(day)
 
-    mod = import_module(f"days.day_{day}")
+    module = f"days.day_{day}{'_alt' if alt else ''}"
+
+    mod = import_module(module)
     for part in ("part_one", "part_two"):
         if not hasattr(mod, part):
             print(f"could not find {part} in day {day}, skipping.")
