@@ -1,5 +1,5 @@
 import re
-from .utils import get_day_input
+from .common import get_day_input
 
 data = get_day_input(4)
 
