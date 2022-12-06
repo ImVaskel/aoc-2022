@@ -15,7 +15,7 @@ def part_one():
 def part_two():
     for i in range(0, len(data) - 14):
         chars = data[i : i + 14]
-        if len(set(chars)) == 14:  # we know we should have 4 characters total
+        if len(set(chars)) == 14:  # we know we should have 14 characters total
             return i + 14
 
     raise Exception("this should not be possible.")
