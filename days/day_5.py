@@ -38,9 +38,9 @@ def part_one():
             crate = stacks[_from - 1].pop(0)
             stacks[to - 1].insert(0, crate)
 
-    top = "".join(next(x for x in stack if x.isalpha()) for stack in stacks)
+    tops = "".join(next(x for x in stack if x.isalpha()) for stack in stacks)
 
-    return top
+    return tops
 
 
 def part_two():
@@ -52,6 +52,6 @@ def part_two():
         for crate in reversed(crates):
             stacks[to - 1].insert(0, crate)
 
-    top = "".join(next(x for x in stack if x.isalpha()) for stack in stacks)
+    tops = "".join(next(x for x in stack if x.isalpha()) for stack in stacks)
 
-    return top
+    return tops
